@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Navbar from "./components/Navbar";
+import CoverPage from "./pages/CoverPage";
+import { Routes, Route, Link } from "react-router-dom";
+import AddPage from "./pages/AddPage";
+import EditPage from "./pages/EditPage";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<CoverPage />} />
+        <Route path="/add" element={<AddPage />} />
+        <Route path="/edit/:id" element={<EditPage />} />
+      </Routes>
     </div>
   );
 }
